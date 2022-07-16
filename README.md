@@ -4,27 +4,19 @@ Requires [node.js](https://nodejs.org/en/) and [express.js](https://expressjs.co
 
 ## Directory Structure
 
+``` 
 src
-
  └─── configs               # Configuration related stuff
- 
  └─── contrrollers          # Controllers for all the endpoints
- 
  └─── db
- 
        └─── models          # Object Models
-       
  └─── middleware            # Check API access
- 
  └─── module                # Business logic
- 
  └─── public                # Static file
- 
        └─── email           # Template Email
-       
  └─── routes                # Routes for all the endpoints
- 
- └─── services              # services function
+ └─── services              # services function 
+ ```
 
  ### Start App
 
