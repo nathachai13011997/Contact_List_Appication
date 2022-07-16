@@ -1,4 +1,4 @@
-## Project Struture of RESTFull API with Express
+## Project Contact List Appication of RESTFull API with Express
 
 Requires [node.js](https://nodejs.org/en/) and [express.js](https://expressjs.com/) to run
 
