@@ -5,7 +5,6 @@ const methods = {
         }catch(error){
             throw new Error(error)
         }
-        
     }
 }
 
