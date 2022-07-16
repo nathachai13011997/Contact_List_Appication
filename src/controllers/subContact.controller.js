@@ -12,7 +12,7 @@ const methods = {
 
     async onDelete(req, res) {
         try {
-            await Contact.deleteSub(req.params.idSubContact)
+            await Contact.deleteSub(req.params.idGroupContact, req.params.idSubContact)
             res.success('success');
         } catch(error) {
             res.error(error)
@@ -30,7 +30,7 @@ const methods = {
 
     async onUpdate(req, res) {
         try {
-           const result = await Contact.updateSub(req.params.idSubContact, req.body)
+           const result = await Contact.updateSub(req.params.idGroupContact, req.params.idSubContact, req.body)
             res.success(result);
         } catch(error) {
             res.error(error)

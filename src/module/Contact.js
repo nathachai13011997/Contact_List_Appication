@@ -91,68 +91,116 @@ const methods = {
         } )
     },
 
-deleteSub(idSubContact) {
-    return new Promise( async (resolve, reject) => {
-        try {
-            const obj = SubContact.find(e => e.idSubContact == idSubContact)
-            if(!obj) return reject(ErrorNotFound('idSubContact: not found'))
+    deleteSub(idGroupContact, idSubContact) {
+        return new Promise( async (resolve, reject) => {
+            try {
+                const obj = SubContact.find(e => e.idGroupContact == idGroupContact)
+                if(!obj) return reject(ErrorNotFound('idGroupContact not found'))
 
-            SubContact = SubContact.filter(e => e.idSubContact != idSubContact)
+                const obj1 = SubContact.find(e => e.idSubContact == idSubContact)
+                if(!obj1) return reject(ErrorNotFound('idSubContact not found'))
 
-            resolve()
-        } catch(error) {
-            reject(ErrorNotFound('idSubContact: not found'))
-        }
-    })
-},
+                SubContact = SubContact.filter(e => e.idSubContact != idSubContact)
 
-insertSub(idGroupContact, data) {
-    return new Promise( async (resolve, reject) => {
-        try {
-            const obj = GroupContact.find(e => e.idGroupContact == idGroupContact)
-            if(!obj) return reject(ErrorNotFound('idGroupContact: not found'))
+                resolve()
+            } catch(error) {
+                reject(ErrorNotFound('idSubContact: not found'))
+            }
+        })
+    },
 
-            const obj2 = SubContact.find(e => e.nameSubContact == data.nameSubContact)
-            if(obj2) return reject(ErrorUnauthorized('nameSubContact: duplicate')) 
-            
-                const idSub = SubContact[SubContact.length - 1].idSubContact + 1
-                SubContact.push({ idSubContact: idSub, idGroupContact: idGroupContact, nameSubContact: data.nameSubContact })
-                resolve({ idSubContact: idSub, idGroupContact: idGroupContact, nameSubContact: data.nameSubContact })
-        } catch(error) {
-            reject(ErrorBadRequest(error.message))
-        }
-    } )
-},
+    insertSub(idGroupContact, data) {
+        return new Promise( async (resolve, reject) => {
+            try {
+                const obj = GroupContact.find(e => e.idGroupContact == idGroupContact)
+                if(!obj) return reject(ErrorNotFound('idGroupContact not found'))
 
-updateSub(idSubContact, data) {
-    return new Promise( async (resolve, reject) => {
-        try {
+                const obj2 = SubContact.find(e => e.firstName == data.firstName && e.lastName == data.lastName)
+                if(obj2) return reject(ErrorUnauthorized('firstName lastName duplicate'))
 
-            const obj = SubContact.find(e => e.idSubContact == idSubContact)
-            if(!obj) return reject(ErrorNotFound('idSubContact: not found'))
+                const obj3 = SubContact.find(e => e.phone == data.phone)
+                if(obj3) return reject(ErrorUnauthorized('phone duplicate'))
 
-            const obj2 = SubContact.find(e => { 
-                if(e.nameSubContact == data.nameSubContact && e.idSubContact != idSubContact){
+                const obj4 = SubContact.find(e => e.email == data.email)
+                if(obj4) return reject(ErrorUnauthorized('email duplicate'))
+
+                const obj5 = SubContact.find(e => e.url == data.url)
+                if(obj5) return reject(ErrorUnauthorized('url duplicate'))
+                
+                    const idSub = SubContact[SubContact.length - 1].idSubContact + 1
+                    const dataInof = {
+                        idSubContact: idSub,
+                        idGroupContact: idGroupContact,
+                        firstName: data.firstName,
+                        lastName: data.lastName,
+                        phone: data.phone,
+                        email: data.email,
+                        url: data.url
+                    }
+                    SubContact.push(dataInof)
+                    resolve(dataInof)
+            } catch(error) {
+                reject(ErrorBadRequest(error.message))
+            }
+        } )
+    },
+
+    updateSub(idGroupContact, idSubContact, data) {
+        return new Promise( async (resolve, reject) => {
+            try {
+
+                const obj = SubContact.find(e => e.idGroupContact == idGroupContact)
+                if(!obj) return reject(ErrorNotFound('idGroupContact not found'))
+                
+                const obj1 = SubContact.find(e => e.idSubContact == idSubContact)
+                if(!obj1) return reject(ErrorNotFound('idSubContact not found'))
+
+                const obj2 = SubContact.find(e => { 
+                    if(e.firstName == data.firstName && e.lastName == data.lastName && e.idSubContact != idSubContact){
+                        return e
+                    } 
+                })
+                if(obj2) return reject(ErrorNotFound('firstName lastName duplicate'))
+
+                const obj3 = SubContact.find(e => { 
+                    if(e.phone == data.phone && e.idSubContact != idSubContact){
+                        return e
+                    } 
+                })
+                if(obj3) return reject(ErrorNotFound('phone duplicate'))
+
+                const obj4 = SubContact.find(e => { 
+                    if(e.email == data.email && e.idSubContact != idSubContact){
+                        return e
+                    } 
+                })
+                if(obj4) return reject(ErrorNotFound('email duplicate'))
+
+                const obj5 = SubContact.find(e => { 
+                    if(e.url == data.url && e.idSubContact != idSubContact){
+                        return e
+                    } 
+                })
+                if(obj5) return reject(ErrorNotFound('url duplicate'))
+
+                SubContact.map((e, i)=> {
+                    if(e.idSubContact == idSubContact){
+                        SubContact[i].firstName = data.firstName
+                        SubContact[i].lastName = data.lastName
+                        SubContact[i].phone = data.phone
+                        SubContact[i].email = data.email
+                        SubContact[i].url = data.url
+                    }
                     return e
-                } 
-            })
+                })
 
-            if(obj2) return reject(ErrorNotFound('nameSubContact: duplicate')) 
+                resolve(Object.assign(obj))
+            } catch(error) {
+                reject(error)
 
-            SubContact.map((e, i)=> {
-                if(e.idSubContact == idSubContact){
-                    SubContact[i].nameSubContact = data.nameSubContact
-                }
-                return e
-            })
-
-            resolve(Object.assign(obj))
-        } catch(error) {
-            reject(error)
-
-        }
-    } )
-},
+            }
+        } )
+    },
 
 }
 

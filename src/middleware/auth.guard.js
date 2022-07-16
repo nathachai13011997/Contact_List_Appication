@@ -1,5 +1,4 @@
-const secret = require('../configs/app').secret,
-      { ErrorUnauthorized } = require('../configs/errorMethods'),
+const { ErrorUnauthorized } = require('../configs/errorMethods'),
       { validateAccessToken } = require('../services/auth.service')
 
 const methods = {
