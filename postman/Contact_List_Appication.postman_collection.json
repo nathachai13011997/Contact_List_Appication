@@ -17,7 +17,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2NTc5NDM1MzIsImV4cCI6MTY1Nzk0NTMzMn0.kskSPhxM4BsW_u8WXpKrrkM7dcycKd2iEQhpSZ91FJs",
+									"value": "{{token}}",
 									"type": "string"
 								}
 							]
@@ -48,7 +48,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2NTc5MTQ4NjIsImV4cCI6MTY1NzkxNjY2Mn0.8N-kbwRYwEgnO210xnAY_P9K4a-VR3ROaXj6ldFL5og",
+									"value": "{{token}}",
 									"type": "string"
 								}
 							]
@@ -88,7 +88,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2NTc5MDk3OTYsImV4cCI6MTY1NzkxMTU5Nn0.m06VW6LP6BgfdIqXRP5j29BQy3nSSyuiraPYvMyF3mQ",
+									"value": "{{token}}",
 									"type": "string"
 								}
 							]
@@ -128,7 +128,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2NTc5NDM1MzIsImV4cCI6MTY1Nzk0NTMzMn0.kskSPhxM4BsW_u8WXpKrrkM7dcycKd2iEQhpSZ91FJs",
+									"value": "{{token}}",
 									"type": "string"
 								}
 							]
@@ -168,10 +168,20 @@
 				{
 					"name": "getGroupSubContact",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:5000/api/sub/3",
+							"raw": "http://localhost:5000/api/sub/2",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -180,7 +190,7 @@
 							"path": [
 								"api",
 								"sub",
-								"3"
+								"2"
 							]
 						}
 					},
@@ -189,11 +199,21 @@
 				{
 					"name": "addGroupSubContact",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
 						"method": "POST",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"nameSubContact\": \"testSub02\"\r\n}",
+							"raw": "{\r\n    \"firstName\":\"Nathachai\",\r\n    \"lastName\": \"Rungsaeng\",\r\n    \"BirthDate\": \"13/01/2540\",\r\n    \"phone\": \"0925976200\",\r\n    \"email\": \"nathachai@gmail.com\",\r\n    \"url\": \"https://nathachai\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -201,7 +221,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:5000/api/sub/3",
+							"raw": "http://localhost:5000/api/sub/2",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -210,7 +230,7 @@
 							"path": [
 								"api",
 								"sub",
-								"3"
+								"2"
 							]
 						}
 					},
@@ -219,11 +239,21 @@
 				{
 					"name": "updateGroupSubContact",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
 						"method": "PUT",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"nameSubContact\": \"TestSunName01\"\r\n}",
+							"raw": "{\r\n    \"firstName\":\"Nathachai12\",\r\n    \"lastName\": \"Rungsaeng\",\r\n    \"BirthDate\": \"13/01/2540\",\r\n    \"phone\": \"0925976200\",\r\n    \"email\": \"nathachai@gmail.com\",\r\n    \"url\": \"https://nathachai\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -231,7 +261,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:5000/api/sub/1",
+							"raw": "http://localhost:5000/api/sub/2/4",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -240,7 +270,8 @@
 							"path": [
 								"api",
 								"sub",
-								"1"
+								"2",
+								"4"
 							]
 						}
 					},
@@ -249,10 +280,20 @@
 				{
 					"name": "deleteGroupSubContact",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:5000/api/sub/1",
+							"raw": "http://localhost:5000/api/sub/2/4",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -261,7 +302,8 @@
 							"path": [
 								"api",
 								"sub",
-								"1"
+								"2",
+								"4"
 							]
 						}
 					},
@@ -292,11 +334,21 @@
 		{
 			"name": "sendMail",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
 				"method": "POST",
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"from\": \"testnodemailerv1@gmail.com\",\r\n    \"to\": \"nathachai13011997@gmail.com\",\r\n    \"message\": \"nocde\",\r\n    \"templateID\": 2\r\n}",
+					"raw": "{\r\n    \"from\": \"testnodemailerv1@gmail.com\",\r\n    \"to\": \"nathachai13011997@gmail.com\",\r\n    \"message\": \"testnodemailer\",\r\n    \"templateID\": 2\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -313,6 +365,45 @@
 					"path": [
 						"api",
 						"mail"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "calculatingPIT",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"income\": 200000\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/pit",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"pit"
 					]
 				}
 			},

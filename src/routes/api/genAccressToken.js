@@ -1,6 +1,6 @@
 const router = require('express').Router()
-const accressToken = require('../../controllers/genAccressToken.controller');
+const controllers = require('../../controllers/genAccressToken.controller');
 
-router.post('/', accressToken.onGenerateAccressToken)
+router.post('/', controllers.onGenerateAccressToken)
 
 module.exports = router;
