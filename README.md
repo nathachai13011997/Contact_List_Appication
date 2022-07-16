@@ -1,9 +1,10 @@
-## Project Struture of RESTFull API with Express
+## Project Contact List Appication of RESTFull API with Express
 
 Requires [node.js](https://nodejs.org/en/) and [express.js](https://expressjs.com/) to run
 
 ## Directory Structure
 
+``` 
 src
  └─── configs               # Configuration related stuff
  └─── contrrollers          # Controllers for all the endpoints
@@ -14,7 +15,8 @@ src
  └─── public                # Static file
        └─── email           # Template Email
  └─── routes                # Routes for all the endpoints
- └─── services              # services function
+ └─── services              # services function 
+ ```
 
  ### Start App
 
