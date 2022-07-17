@@ -1,6 +1,6 @@
-const router = require('express').Router()
-const controllers = require('../../controllers/calculatingPIT.controller');
+const router = require("express").Router()
+const controllers = require("../../controllers/calculatingPIT.controller")
 
-router.post('/', controllers.calculatingPIT)
+router.post("/", controllers.calculatingPIT)
 
-module.exports = router;
+module.exports = router
