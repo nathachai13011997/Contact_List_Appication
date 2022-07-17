@@ -1,5 +1,5 @@
 const { validationResult } = require("express-validator"),
-  { ErrorUnprocessableEntity } = require("../configs/errorMethods")
+  { ErrorUnprocessableEntity } = require("../services/errorMethods.service")
 
 const contact = require("./contact")
 

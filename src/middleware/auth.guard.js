@@ -1,4 +1,4 @@
-const { ErrorUnauthorized } = require("../configs/errorMethods"),
+const { ErrorUnauthorized } = require("../services/errorMethods.service"),
   { validateAccessToken } = require("../services/auth.service")
 
 const methods = {

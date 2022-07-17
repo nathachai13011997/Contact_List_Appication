@@ -1,5 +1,4 @@
 const express = require("express")
-const path = require("path")
 
 module.exports = async (app) => {
   // Parser Body
@@ -7,5 +6,5 @@ module.exports = async (app) => {
   app.use(express.urlencoded({ extended: false }))
 
   // Custom Response Format
-  app.use(require("../configs/responseFormat"))
+  app.use(require("../services/responseFormat.service"))
 }

@@ -1,6 +1,6 @@
 let GroupContact = require("../db/models/GroupContact")
 let SubContact = require("../db/models/SubContact")
-const { ErrorNotFound, ErrorBadRequest, ErrorUnauthorized } = require("../configs/errorMethods")
+const { ErrorNotFound, ErrorBadRequest, ErrorUnauthorized } = require("../services/errorMethods.service")
 
 const methods = {
   findGroup() {
