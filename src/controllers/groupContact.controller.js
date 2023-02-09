@@ -3,6 +3,21 @@ const Contact = require("../module/Contact")
 const methods = {
   async onGetAll(req, res) {
     try {
+      /* 
+            #swagger.tags = ['Group']
+            #swagger.description = 'Get group lists'
+            #swagger.parameters['authorization'] = {
+                in: 'header',
+                type: 'string'
+            }
+            #swagger.responses[200] = {
+                schema: [{ $ref: "#/definitions/GroupRes" }]
+            }
+            #swagger.responses[500] = {
+                schema: { $ref: "#/definitions/ErrorRes" }
+            }
+        */
+
       const result = await Contact.findGroup()
       res.success(result)
     } catch (error) {

@@ -4,7 +4,7 @@ Requires [node.js](https://nodejs.org/en/) and [express.js](https://expressjs.co
 
 ## Directory Structure
 
-``` 
+```
 src
  └─── configs               # Configuration related stuff
  └─── contrrollers          # Controllers for all the endpoints
@@ -15,13 +15,21 @@ src
  └─── public                # Static file
        └─── email           # Template Email
  └─── routes                # Routes for all the endpoints
- └─── services              # services function 
- ```
+ └─── services              # services function
+```
 
- ### Start App
+### Start App
 
- ### Install dependencies
- `$ yarn install` or `$ npm install`
+### Install dependencies
 
- ### Start app
- `$ yarn start` or `$npm start` 
+`$ yarn install` or `$ npm install`
+
+### Start app
+
+`$ yarn start` or `$ npm start`
+
+### API Docs
+
+`$ yarn swagger` or `$ npm swagger`
+
+API Docs URL : http://localhost:5000/docs

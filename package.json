@@ -6,7 +6,8 @@
   "scripts": {
     "start": "nodemon ./src/main.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "format": "prettier --write \"src/**/*.js\" \"test/**/*.js\""
+    "format": "prettier --write \"src/**/*.js\" \"test/**/*.js\"",
+    "swagger": "node swagger.js"
   },
   "keywords": [],
   "author": "",
@@ -21,6 +22,10 @@
     "nodemailer-express-handlebars": "^5.0.0",
     "nodemon": "^2.0.19",
     "prettier": "^2.7.1",
+    "swagger-ui-express": "^4.6.0",
     "winston": "^3.8.1"
+  },
+  "devDependencies": {
+    "swagger-autogen": "^2.23.0"
   }
 }

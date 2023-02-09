@@ -1,0 +1,398 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "Contact List Appication",
+    "description": ""
+  },
+  "host": "",
+  "basePath": "/api",
+  "tags": [
+    {
+      "name": "Token"
+    },
+    {
+      "name": "Group"
+    },
+    {
+      "name": "Sub"
+    },
+    {
+      "name": "Mail"
+    },
+    {
+      "name": "Pit"
+    }
+  ],
+  "schemes": [],
+  "paths": {
+    "/group/": {
+      "get": {
+        "tags": [
+          "Group"
+        ],
+        "description": "Get group lists",
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/GroupRes"
+              },
+              "xml": {
+                "name": "main"
+              }
+            },
+            "description": "OK"
+          },
+          "500": {
+            "schema": {
+              "$ref": "#/definitions/ErrorRes"
+            },
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "post": {
+        "description": "",
+        "parameters": [],
+        "responses": {}
+      }
+    },
+    "/group/{idGroupContact}": {
+      "put": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "idGroupContact",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {}
+      },
+      "delete": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "idGroupContact",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {}
+      }
+    },
+    "/sub/upload": {
+      "post": {
+        "description": "",
+        "parameters": [],
+        "responses": {}
+      }
+    },
+    "/sub/{idGroupContact}": {
+      "get": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "idGroupContact",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {}
+      },
+      "post": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "idGroupContact",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {}
+      }
+    },
+    "/sub/{idGroupContact}/{idSubContact}": {
+      "put": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "idGroupContact",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "idSubContact",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {}
+      },
+      "delete": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "idGroupContact",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "idSubContact",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {}
+      }
+    },
+    "/token/": {
+      "post": {
+        "tags": [
+          "Token"
+        ],
+        "description": "Generate Accress Token",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "schema": {
+              "$ref": "#/definitions/TokenRes"
+            },
+            "description": "OK"
+          },
+          "500": {
+            "schema": {
+              "$ref": "#/definitions/ErrorRes"
+            },
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/mail/": {
+      "post": {
+        "description": "",
+        "parameters": [],
+        "responses": {}
+      }
+    },
+    "/pit/": {
+      "post": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "income": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {}
+      }
+    }
+  },
+  "definitions": {
+    "TokenRes": {
+      "type": "object",
+      "properties": {
+        "accessToken": {
+          "type": "string",
+          "example": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2NzU4NzM5dfasImV4cCI6MTY3NTg3NTc1Nn0.ffjGPECWE5nOsda-bO4JvIQdJlEBHKal4vYZ7coD8HA"
+        }
+      }
+    },
+    "GroupRes": {
+      "type": "object",
+      "properties": {
+        "idGroupContact": {
+          "type": "number",
+          "example": 1
+        },
+        "nameGroupContact": {
+          "type": "string",
+          "example": "Family"
+        }
+      }
+    },
+    "MessageRes": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "number",
+          "example": 51
+        },
+        "content": {
+          "type": "string",
+          "example": "Hello admin"
+        },
+        "inbox_id": {
+          "type": "number",
+          "example": 1
+        },
+        "conversation_id": {
+          "type": "number",
+          "example": 5
+        },
+        "message_type": {
+          "type": "number",
+          "example": 0
+        },
+        "content_type": {
+          "type": "string",
+          "example": "text"
+        },
+        "content_attributes": {
+          "type": "object",
+          "properties": {}
+        },
+        "created_at": {
+          "type": "number",
+          "example": 1669862528000
+        },
+        "private": {
+          "type": "boolean",
+          "example": false
+        },
+        "source_id": {},
+        "sender": {
+          "type": "object",
+          "properties": {
+            "additional_attributes": {
+              "type": "object",
+              "properties": {}
+            },
+            "custom_attributes": {
+              "type": "object",
+              "properties": {
+                "custom1": {
+                  "type": "string",
+                  "example": "test custom 1"
+                }
+              }
+            },
+            "email": {
+              "type": "string",
+              "example": "0933333333@24fixer.com"
+            },
+            "id": {
+              "type": "number",
+              "example": 3
+            },
+            "identifier": {
+              "type": "string",
+              "example": "fixer003"
+            },
+            "name": {
+              "type": "string",
+              "example": "Fixer 3"
+            },
+            "phone_number": {
+              "type": "string",
+              "example": "+66933333333"
+            },
+            "thumbnail": {
+              "type": "string",
+              "example": ""
+            },
+            "type": {
+              "type": "string",
+              "example": "contact"
+            }
+          }
+        }
+      }
+    },
+    "MessageReq": {
+      "type": "object",
+      "properties": {
+        "content": {
+          "type": "string",
+          "example": "Hello admin"
+        }
+      },
+      "required": [
+        "content"
+      ]
+    },
+    "WebhookReq": {
+      "type": "object",
+      "properties": {}
+    },
+    "CountRes": {
+      "type": "object",
+      "properties": {
+        "count": {
+          "type": "number",
+          "example": 29
+        }
+      }
+    },
+    "HealthRes": {
+      "type": "object",
+      "properties": {
+        "message": {
+          "type": "string",
+          "example": "OK"
+        },
+        "uptime": {
+          "type": "string",
+          "example": "2022-12-01T13:39:24.797Z"
+        },
+        "version": {
+          "type": "string",
+          "example": "1.0.0"
+        }
+      }
+    },
+    "SuccessRes": {
+      "type": "object",
+      "properties": {
+        "message": {
+          "type": "string",
+          "example": "Successful"
+        }
+      }
+    },
+    "NotFoundRes": {
+      "type": "object",
+      "properties": {
+        "message": {
+          "type": "string",
+          "example": "No data found"
+        }
+      }
+    },
+    "ErrorRes": {
+      "type": "object",
+      "properties": {
+        "message": {
+          "type": "string",
+          "example": "Something went wrong."
+        }
+      }
+    }
+  }
+}
