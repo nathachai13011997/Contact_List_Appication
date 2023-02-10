@@ -69,6 +69,7 @@
           {
             "name": "authorization",
             "in": "header",
+            "required": true,
             "type": "string"
           },
           {
@@ -107,16 +108,55 @@
     },
     "/group/{idGroupContact}": {
       "put": {
-        "description": "",
+        "tags": [
+          "Group"
+        ],
+        "description": "Update group lists",
         "parameters": [
           {
             "name": "idGroupContact",
             "in": "path",
             "required": true,
             "type": "string"
+          },
+          {
+            "name": "authorization",
+            "in": "header",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "data",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "nameGroupContact": {
+                  "type": "string",
+                  "example": "Bank123"
+                }
+              },
+              "required": [
+                "nameGroupContact"
+              ]
+            }
           }
         ],
-        "responses": {}
+        "responses": {
+          "200": {
+            "schema": {
+              "$ref": "#/definitions/GroupPostRes"
+            },
+            "description": "OK"
+          },
+          "500": {
+            "schema": {
+              "$ref": "#/definitions/ErrorRes"
+            },
+            "description": "Internal Server Error"
+          }
+        }
       },
       "delete": {
         "description": "",
@@ -281,7 +321,7 @@
       "properties": {
         "idGroupContact": {
           "type": "number",
-          "example": 5
+          "example": 4
         },
         "nameGroupContact": {
           "type": "string",

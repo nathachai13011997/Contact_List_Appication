@@ -40,6 +40,10 @@ const doc = {
       idGroupContact: 4,
       nameGroupContact: "Bank123"
     },
+    GroupUpdateRes: {
+      idGroupContact: 2,
+      nameGroupContact: "test001"
+    },
     MessageRes: {
       id: 51,
       content: "Hello admin",
