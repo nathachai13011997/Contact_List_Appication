@@ -36,6 +36,7 @@
           {
             "name": "authorization",
             "in": "header",
+            "required": true,
             "type": "string"
           }
         ],
@@ -134,7 +135,7 @@
               "properties": {
                 "nameGroupContact": {
                   "type": "string",
-                  "example": "Bank123"
+                  "example": "test001"
                 }
               },
               "required": [
@@ -159,16 +160,38 @@
         }
       },
       "delete": {
-        "description": "",
+        "tags": [
+          "Group"
+        ],
+        "description": "Delete group lists",
         "parameters": [
           {
             "name": "idGroupContact",
             "in": "path",
             "required": true,
             "type": "string"
+          },
+          {
+            "name": "authorization",
+            "in": "header",
+            "required": true,
+            "type": "string"
           }
         ],
-        "responses": {}
+        "responses": {
+          "200": {
+            "schema": {
+              "$ref": "#/definitions/SuccessRes"
+            },
+            "description": "OK"
+          },
+          "500": {
+            "schema": {
+              "$ref": "#/definitions/ErrorRes"
+            },
+            "description": "Internal Server Error"
+          }
+        }
       }
     },
     "/sub/upload": {
@@ -180,16 +203,44 @@
     },
     "/sub/{idGroupContact}": {
       "get": {
-        "description": "",
+        "tags": [
+          "Sub"
+        ],
+        "description": "Getbyid Sub Contact",
         "parameters": [
           {
             "name": "idGroupContact",
             "in": "path",
             "required": true,
             "type": "string"
+          },
+          {
+            "name": "authorization",
+            "in": "header",
+            "required": true,
+            "type": "string"
           }
         ],
-        "responses": {}
+        "responses": {
+          "200": {
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/SubRes"
+              },
+              "xml": {
+                "name": "main"
+              }
+            },
+            "description": "OK"
+          },
+          "500": {
+            "schema": {
+              "$ref": "#/definitions/ErrorRes"
+            },
+            "description": "Internal Server Error"
+          }
+        }
       },
       "post": {
         "description": "",
@@ -206,7 +257,10 @@
     },
     "/sub/{idGroupContact}/{idSubContact}": {
       "put": {
-        "description": "",
+        "tags": [
+          "Sub"
+        ],
+        "description": "Update Sub Contact",
         "parameters": [
           {
             "name": "idGroupContact",
@@ -219,9 +273,28 @@
             "in": "path",
             "required": true,
             "type": "string"
+          },
+          {
+            "name": "authorization",
+            "in": "header",
+            "required": true,
+            "type": "string"
           }
         ],
-        "responses": {}
+        "responses": {
+          "200": {
+            "schema": {
+              "$ref": "#/definitions/SuccessRes"
+            },
+            "description": "OK"
+          },
+          "500": {
+            "schema": {
+              "$ref": "#/definitions/ErrorRes"
+            },
+            "description": "Internal Server Error"
+          }
+        }
       },
       "delete": {
         "description": "",
@@ -326,6 +399,56 @@
         "nameGroupContact": {
           "type": "string",
           "example": "Bank123"
+        }
+      }
+    },
+    "GroupUpdateRes": {
+      "type": "object",
+      "properties": {
+        "idGroupContact": {
+          "type": "number",
+          "example": 2
+        },
+        "nameGroupContact": {
+          "type": "string",
+          "example": "test001"
+        }
+      }
+    },
+    "SubRes": {
+      "type": "object",
+      "properties": {
+        "idSubContact": {
+          "type": "number",
+          "example": 1
+        },
+        "idGroupContact": {
+          "type": "number",
+          "example": 1
+        },
+        "firstName": {
+          "type": "string",
+          "example": "FirstDad"
+        },
+        "lastName": {
+          "type": "string",
+          "example": "LastDad"
+        },
+        "BirthDate": {
+          "type": "string",
+          "example": "13/01/2510"
+        },
+        "phone": {
+          "type": "string",
+          "example": "0923223123"
+        },
+        "email": {
+          "type": "string",
+          "example": "dad@gmail.com"
+        },
+        "url": {
+          "type": "string",
+          "example": "https://Dad"
         }
       }
     },
@@ -464,7 +587,7 @@
       "properties": {
         "message": {
           "type": "string",
-          "example": "Successful"
+          "example": "success"
         }
       }
     },

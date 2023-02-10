@@ -8,6 +8,7 @@ const methods = {
             #swagger.description = 'Get group lists'
             #swagger.parameters['authorization'] = {
                 in: 'header',
+                required: 'true',
                 type: 'string'
             }
             #swagger.responses[200] = {
@@ -27,8 +28,24 @@ const methods = {
 
   async onDelete(req, res) {
     try {
+      /* 
+            #swagger.tags = ['Group']
+            #swagger.description = 'Delete group lists'
+            #swagger.parameters['authorization'] = {
+                in: 'header',
+                required: 'true',
+                type: 'string'
+            }
+            #swagger.responses[200] = {
+                schema: { $ref: "#/definitions/SuccessRes" }
+            }
+            #swagger.responses[500] = {
+                schema: { $ref: "#/definitions/ErrorRes" }
+            }
+        */
+
       await Contact.deleteGroup(req.params.idGroupContact)
-      res.success("success")
+      res.success({ message: "success" })
     } catch (error) {
       res.error(error)
     }

@@ -3,6 +3,22 @@ const Contact = require("../module/Contact")
 const methods = {
   async onGetByIdGroup(req, res) {
     try {
+      /* 
+            #swagger.tags = ['Sub']
+            #swagger.description = 'Getbyid Sub Contact'
+            #swagger.parameters['authorization'] = {
+                in: 'header',
+                required: 'true',
+                type: 'string'
+            }
+            #swagger.responses[200] = {
+                schema: [{ $ref: "#/definitions/SubRes" }]
+            }
+            #swagger.responses[500] = {
+                schema: { $ref: "#/definitions/ErrorRes" }
+            }
+        */
+
       const result = await Contact.findByIdGroup(req.params.idGroupContact)
       res.success(result)
     } catch (error) {
@@ -30,6 +46,22 @@ const methods = {
 
   async onUpdate(req, res) {
     try {
+      /* 
+            #swagger.tags = ['Sub']
+            #swagger.description = 'Update Sub Contact'
+            #swagger.parameters['authorization'] = {
+                in: 'header',
+                required: 'true',
+                type: 'string'
+            }
+            #swagger.responses[200] = {
+                schema: { $ref: "#/definitions/SuccessRes" }
+            }
+            #swagger.responses[500] = {
+                schema: { $ref: "#/definitions/ErrorRes" }
+            }
+        */
+
       const result = await Contact.updateSub(req.params.idGroupContact, req.params.idSubContact, req.body)
       res.success(result)
     } catch (error) {

@@ -44,6 +44,16 @@ const doc = {
       idGroupContact: 2,
       nameGroupContact: "test001"
     },
+    SubRes: {
+      idSubContact: 1,
+      idGroupContact: 1,
+      firstName: "FirstDad",
+      lastName: "LastDad",
+      BirthDate: "13/01/2510",
+      phone: "0923223123",
+      email: "dad@gmail.com",
+      url: "https://Dad"
+    },
     MessageRes: {
       id: 51,
       content: "Hello admin",
@@ -82,7 +92,7 @@ const doc = {
       version: "1.0.0"
     },
     SuccessRes: {
-      message: "Successful"
+      message: "success"
     },
     NotFoundRes: {
       message: "No data found"
