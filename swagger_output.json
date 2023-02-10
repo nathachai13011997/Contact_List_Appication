@@ -61,9 +61,48 @@
         }
       },
       "post": {
-        "description": "",
-        "parameters": [],
-        "responses": {}
+        "tags": [
+          "Group"
+        ],
+        "description": "Insert group lists",
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string"
+          },
+          {
+            "name": "data",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "nameGroupContact": {
+                  "type": "string",
+                  "example": "Bank123"
+                }
+              },
+              "required": [
+                "nameGroupContact"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "schema": {
+              "$ref": "#/definitions/GroupPostRes"
+            },
+            "description": "OK"
+          },
+          "500": {
+            "schema": {
+              "$ref": "#/definitions/ErrorRes"
+            },
+            "description": "Internal Server Error"
+          }
+        }
       }
     },
     "/group/{idGroupContact}": {
@@ -234,6 +273,19 @@
         "nameGroupContact": {
           "type": "string",
           "example": "Family"
+        }
+      }
+    },
+    "GroupPostRes": {
+      "type": "object",
+      "properties": {
+        "idGroupContact": {
+          "type": "number",
+          "example": 5
+        },
+        "nameGroupContact": {
+          "type": "string",
+          "example": "Bank123"
         }
       }
     },

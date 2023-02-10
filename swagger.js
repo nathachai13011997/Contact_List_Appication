@@ -36,6 +36,10 @@ const doc = {
       idGroupContact: 1,
       nameGroupContact: "Family"
     },
+    GroupPostRes: {
+      idGroupContact: 4,
+      nameGroupContact: "Bank123"
+    },
     MessageRes: {
       id: 51,
       content: "Hello admin",

@@ -36,6 +36,28 @@ const methods = {
 
   async onInsert(req, res) {
     try {
+      /* 
+            #swagger.tags = ['Group']
+            #swagger.description = 'Insert group lists'
+            #swagger.parameters['authorization'] = {
+                in: 'header',
+                type: 'string'
+            }
+             #swagger.parameters['data'] = {
+                in: 'body',
+                required: 'true',
+                schema: {
+                    $nameGroupContact: 'Bank123',
+                }
+            }
+            #swagger.responses[200] = {
+                schema: { $ref: "#/definitions/GroupPostRes" }
+            }
+            #swagger.responses[500] = {
+                schema: { $ref: "#/definitions/ErrorRes" }
+            }
+        */
+
       const result = await Contact.insertGroup(req.body)
       res.success(result)
     } catch (error) {
