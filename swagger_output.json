@@ -297,7 +297,10 @@
         }
       },
       "delete": {
-        "description": "",
+        "tags": [
+          "Sub"
+        ],
+        "description": "Delete Sub Contact",
         "parameters": [
           {
             "name": "idGroupContact",
@@ -310,9 +313,34 @@
             "in": "path",
             "required": true,
             "type": "string"
+          },
+          {
+            "name": "authorization",
+            "in": "header",
+            "required": true,
+            "type": "string"
           }
         ],
-        "responses": {}
+        "responses": {
+          "200": {
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/SubRes"
+              },
+              "xml": {
+                "name": "main"
+              }
+            },
+            "description": "OK"
+          },
+          "500": {
+            "schema": {
+              "$ref": "#/definitions/ErrorRes"
+            },
+            "description": "Internal Server Error"
+          }
+        }
       }
     },
     "/token/": {

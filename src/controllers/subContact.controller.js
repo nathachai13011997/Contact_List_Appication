@@ -28,8 +28,24 @@ const methods = {
 
   async onDelete(req, res) {
     try {
+      /* 
+            #swagger.tags = ['Sub']
+            #swagger.description = 'Delete Sub Contact'
+            #swagger.parameters['authorization'] = {
+                in: 'header',
+                required: 'true',
+                type: 'string'
+            }
+            #swagger.responses[200] = {
+                schema: [{ $ref: "#/definitions/SubRes" }]
+            }
+            #swagger.responses[500] = {
+                schema: { $ref: "#/definitions/ErrorRes" }
+            }
+        */
+
       await Contact.deleteSub(req.params.idGroupContact, req.params.idSubContact)
-      res.success("success")
+      res.success({ message: "success" })
     } catch (error) {
       res.error(error)
     }
