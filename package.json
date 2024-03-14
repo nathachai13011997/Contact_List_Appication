@@ -5,6 +5,7 @@
   "main": "main.js",
   "scripts": {
     "start": "nodemon ./src/main.js",
+    "test":  "echo \"No test specified\"",
     "format": "prettier --write \"src/**/*.js\" \"test/**/*.js\"",
     "swagger": "node swagger.js"
   },
