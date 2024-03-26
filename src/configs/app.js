@@ -12,4 +12,5 @@ module.exports = {
   pim_username: process.env.PIM_USERNAME,
   pim_password: process.env.PIM_PASSWORD,
   pim_url: process.env.PIM_URL,
+  my_variable: process.env.MY_VARIABLE,
 }
